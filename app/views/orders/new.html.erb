@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>New Order</h2>
+</div>
+<div class="container">
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :game %>
+    <%= f.submit class: 'btn btn-sm btn-success' %>
+  <% end %>
+  <%= link_to 'back', orders_path(@order), class: "btn btn-sm btn-primary my-3" %>
+</div>
