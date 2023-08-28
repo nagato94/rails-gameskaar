@@ -1,7 +1,8 @@
 class Game < ApplicationRecord
-  has_many :orders, dependent: :destroy
+  belongs_to :user
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :description, presence: true
-  validates :category, presence: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
+  validates :user_id, presence: true
 end
