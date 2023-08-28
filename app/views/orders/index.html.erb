@@ -1,7 +1,6 @@
 <div class="container">
-<h1>Index Orders </h1> 
+  <h1>Index Orders </h1>
   <% @orders.each do |order| %>
     <h3><%= link_to order.game.name, order_path(order) %></h3>
   <% end %>
-  </div>
-  
+</div>
