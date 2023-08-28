@@ -1,0 +1,7 @@
+<div class="container mt-3">
+  <h1><%= @game.name %></h1>
+  <p>Description: <%= @game.description %></p>
+  <p>Category: <%= @game.category %></p>
+  <p>Price: <%= @game.price %></p>
+  <p><%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %></p>
+</div>

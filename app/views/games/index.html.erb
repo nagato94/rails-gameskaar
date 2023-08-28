@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="text-center">Games Listings</h1>
+  <%= link_to 'Create game listing', new_user_game_path(current_user), class:"btn btn-primary"  %>
+  <div class="cards">
+    <% @games.each do |game| %>
+      <div class="card-category">
+        <%= link_to game.name, game_path(game) %>
+      </div>
+    <% end %>
+  </div>
+</div>
