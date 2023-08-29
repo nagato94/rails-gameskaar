@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
+  before_action :set_game, only: %i[ show edit ]
 
   def index
     @games = Game.all
@@ -20,11 +21,20 @@ class GamesController < ApplicationController
     end
   end
 
-  def show
-    @game = Game.find(params[:id])
+  def show; end
+
+  def edit; end
+
+  def update
+    @games.update(game_params)
+    redirect_to games_path(@games)
   end
 
   private
+
+  def set_game
+    @game = Game.find(params[:id])
+  end
 
   def authenticate_user!
     redirect_to new_user_session_path unless user_signed_in?

@@ -8,8 +8,8 @@
 Game.destroy_all
 
 games = [
-  { name: "The Witcher 3: Wild Hunt", description: "Um RPG épico de mundo aberto.", category: "RPG" },
-  { name: "Valorant", description: "Um jogo de tiro tático em equipe.", category: "FPS" }
+  { name: "The Witcher 3: Wild Hunt", description: "Um RPG épico de mundo aberto.", category: "RPG", price: 10.00 },
+  { name: "Valorant", description: "Um jogo de tiro tático em equipe.", category: "FPS", price: 5.00 }
 ]
 
 games.each do |game|

@@ -3,5 +3,6 @@
   <p>Description: <%= @game.description %></p>
   <p>Category: <%= @game.category %></p>
   <p>Price: <%= @game.price %></p>
-  <p><%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %></p>
+  <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
+  <%= link_to 'edit', edit_user_game_path(@game), class: "btn btn-sm btn-warning"%>
 </div>
