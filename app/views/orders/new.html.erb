@@ -1,0 +1,4 @@
+<%= simple_form_for([@game, @order]) do |f| %>
+  <%= f.submit class: 'btn btn-sm btn-success' %>
+<% end %>
+<%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>

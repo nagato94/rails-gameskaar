@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[index new create edit update destroy]
   before_action :set_game, only: %i[show edit update destroy]
 
   def index
@@ -27,7 +27,10 @@ class GamesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @user = current_user
+    @order = Order.new
+  end
 
   def edit; end
 

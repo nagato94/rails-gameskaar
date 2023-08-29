@@ -1,18 +1,14 @@
 <div class="container">
-  <h2><%= @order.game.name %></h2>
-  <div class="row"> 
-    
+  <div class="row">
     <div class="card">
-      
+      <%= cl_image_tag @order.game.image.key, width: 400 %>
       <div class="card-body">
-        <h5 class="card-title"><%= @order.game.name %></h5>
-        <p class="card-text">"<%= @order.game.description %>"</p>
-        <p class="card-text">Comment: <%= @order.comment %></p>
-        <p class="card-text"> <%= @order.game.category %> </p>
-        <p class="card-text"> R$<%= @order.price %> </p>
+        <h3><%= @order.game.name %></h3>
+        <p>Description: <%= @order.game.description %></p>
+        <p>Category: <%= @order.game.category %></p>
+        <p>Price: <%= @order.game.price %></p>
       </div>
     </div>
-      <% end %>
   </div>
-  <%= link_to "back", orders_path(order) %>
+  <%= link_to "back", orders_path %>
 </div>
