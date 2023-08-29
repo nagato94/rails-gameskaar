@@ -5,10 +5,10 @@
         <%= image_tag "logo.png" %>
       <% end %>
 
-      <form class="d-flex mb-0">
-        <input class="form-control me-2" type="search" placeholder="Search for a game" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <%= form_with url: "/games", method: :get, class: "d-flex mb-0" do |form| %>
+      <%= form.text_field :search, class: "form-control me-2", placeholder: "Search for a game" %>
+      <%= form.submit "Search", class:"btn btn-outline-success" %>
+      <% end %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
