@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="text-center">Games Listings</h1>
-  <%= link_to 'Create game listing', new_user_game_path(current_user), class:"btn btn-primary"  %>
+  <%= link_to 'Create game listing', new_game_path(current_user), class:"btn btn-primary"  %>
   <div class="row mt-3">
     <% @games.each do |game| %>
       <div class="card m-1" style="width: 20rem;">
