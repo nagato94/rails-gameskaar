@@ -10,3 +10,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 50px;
 }
+
+.listing{
+  color: #9b9b9b;
+  &:hover{
+    color: $success;
+    transition: .3s ease-in-out;
+    }
+}
