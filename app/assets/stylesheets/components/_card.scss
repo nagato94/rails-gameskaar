@@ -3,9 +3,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   height: 250px;
-background-size: cover;
-background-position: center;
+  background-size: cover;
+  background-position: center;
+
+    .card-category{
+      background-size: cover;
 }
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
