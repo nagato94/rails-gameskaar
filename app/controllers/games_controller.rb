@@ -35,7 +35,7 @@ class GamesController < ApplicationController
   def edit; end
 
   def update
-    @games.update(game_params)
+    @game.update(game_params)
     redirect_to games_path(@games)
   end
 
