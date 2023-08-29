@@ -6,4 +6,5 @@ class Game < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :user_id, presence: true
+  validates :image, presence: true
 end
