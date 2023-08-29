@@ -1,19 +1,25 @@
 <div class="container">
   <h1 class="text-center">Games Listings</h1>
-  <div class="row mt-3">
-    <% if @games.empty? %>
-      <h3 class="text-center text-danger">Game not found!</h3>
-    <% else  %>
-      <% @games.each do |game| %>
-        <div class="col-md-4 mb-4">
-          <div class="card-category card">
-            <%= cl_image_tag game.image.key, class: "card-img-top" %>
+    <div class="row mt-3">
+        <% if @games.empty? %>
+          <div class="d-flex justify-content-center">
+            <div>
+              <h3 class="text-center text-danger">Game not found!</h3>
+              <%= image_tag "mario-bg.png"%>
+            </div>
           </div>
-          <div class="card-body">
-            <p class="text-center mt-2"><%= link_to game.name, game_path(game), class: "text-decoration-none" %></p>
-          </div>
-        </div>
-      <% end %>
+        <% else  %>
+          <% @games.each do |game| %>
+            <div class="col-md-4 mb-4">
+              <div class="card-category card">
+                <%= cl_image_tag game.image.key, class: "card-img-top" %>
+              </div>
+              <div class="card-body">
+                <p class="text-center mt-2"><%= link_to game.name, game_path(game), class: "text-decoration-none" %></p>
+                <p class="text-center">$ <%= game.price %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
     </div>
-  <% end %>
 </div>
