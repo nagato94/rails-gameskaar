@@ -13,6 +13,12 @@ class GamesController < ApplicationController
     # We need to create a new game using the current user
     @game = Game.new(game_params)
     @game.user = @user
+
+    # uploaded_file = game_params[:image]
+    # if uploaded_file.present?
+    #   cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+    #   @game.image.attach(io: URI.parse(cloudinary_file['secure_url']).open, filename: "#{file_name}-#{Date.today}")
+    # end
     if @game.save
       redirect_to game_path(@game)
     else
@@ -32,6 +38,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :price, :category, :user_id)
+    params.require(:game).permit(:name, :description, :price, :category, :user_id, :image)
   end
 end

@@ -5,6 +5,7 @@
     <%= f.input :description %>
     <%= f.input :category %>
     <%= f.input :price %>
+   <%= f.input :image, as: :file, cloudinary: { resource_type: :image, tags: ['post_picture'] } %>
     <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
     <%= f.submit class: 'btn btn-sm btn-success' %>
   <% end %>
