@@ -1,6 +1,6 @@
 <div class="container col-6 justify-content-center m-auto">
   <h2 class="text-center">New Game</h2>
-  <%= simple_form_for([@user, @game]) do |f| %>
+  <%= simple_form_for(@game) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :category %>
