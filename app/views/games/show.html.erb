@@ -5,4 +5,5 @@
   <p>Price: <%= @game.price %></p>
   <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
   <%= link_to 'edit', edit_user_game_path(@game), class: "btn btn-sm btn-warning"%>
+  <%= link_to 'destroy', game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger"%>
 </div>

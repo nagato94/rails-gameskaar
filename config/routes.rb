@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: %i[index show]
-  resources :games, only: %i[index show]
+  resources :games, only: %i[index show destroy]
 end
