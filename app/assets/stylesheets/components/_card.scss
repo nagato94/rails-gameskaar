@@ -6,9 +6,12 @@
   background-size: cover;
   background-position: center;
 
-    .card-category{
-      background-size: cover;
 }
+.card-category{
+  background-size: cover;
+  border: 6px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px black;
 }
 
 
