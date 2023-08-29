@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :set_game, only: %i[ show edit ]
+  before_action :set_game, only: %i[show edit update destroy]
 
   def index
     @games = Game.all
@@ -34,6 +34,11 @@ class GamesController < ApplicationController
   def update
     @games.update(game_params)
     redirect_to games_path(@games)
+  end
+
+  def destroy
+    @game.destroy
+    redirect_to games_path notice: "Game was successfully destroyed.", status: :see_other
   end
 
   private
