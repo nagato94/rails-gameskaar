@@ -1,0 +1,27 @@
+<div class="container">
+  <%= form_with(model: @game) do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div>
+      <%= form.label :category %>
+      <%= form.text_area :category %>
+    </div>
+
+    <div>
+      <%= form.label :price %>
+      <%= form.text_area :price %>
+    </div>
+
+    <div>
+      <%= form.submit "Edit Game", class: "btn btn-sm btn-secondary" %>
+    </div>
+  <% end %>
+</div>
