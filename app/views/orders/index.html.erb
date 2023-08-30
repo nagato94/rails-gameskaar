@@ -1,6 +1,17 @@
-<div class="container">
+<div class="container mt-5">
   <h1 class="text-center">Games Bought</h1>
-  <% @orders.each do |order| %>
-    <%= link_to order.game.name, order_path(order) %>
-  <% end %>
+  <div class="row">
+    <% @orders.each do |order| %>
+      <div class="col-md-4 mb-4">
+        <div class="card border-0">
+        <div class="card-category">
+          <%= cl_image_tag order.game.image.key, class: "card-img-top" %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= link_to order.game.name, order_path(order), class:"text-decoration-none" %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
