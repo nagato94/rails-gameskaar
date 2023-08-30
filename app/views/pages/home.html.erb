@@ -1,17 +1,17 @@
 <h1 class="text-center">JOGOS EM DESTAQUE</h1>
 <div class="container">
   <div id="featured-carousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner w-100">
-      <div class="cards m-2 w-100">
-        <% @games.each_with_index do |game,index|  %>
-          <div class="carousel-item card-category w-100 <%= 'active' if index == 0 %>">
-          <%= cl_image_tag game.image.key, class: "w-100" %>
+    <div class="carousel-inner">
+      <% @games.each_with_index do |game,index|  %>
+        <div class="carousel-item  <%= 'active' if index == 0 %>">
+          <div class="d-flex justify-content-center carousel-big">
+            <%= cl_image_tag game.image.key, class: "img-responsive carousel-img" %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#featured-carousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#featured-carousel" data-bs-slide="next">
