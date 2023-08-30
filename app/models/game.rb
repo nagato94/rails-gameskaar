@@ -2,7 +2,7 @@ class Game < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  CATEGORY = %w[FPS Moba RPG MMO MMORPG Ação Aventura Puzzle Esportes Estratégia Simulação Terror].freeze
+  CATEGORY = %w[FPS Moba RPG MMO MMORPG Action Adventure Puzzle Sports Strategy Simulation Horror].freeze
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
