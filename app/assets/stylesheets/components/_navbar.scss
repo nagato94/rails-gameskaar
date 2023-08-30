@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #242323;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,6 +11,12 @@
   width: 50px;
 }
 
+.logo-font{
+  font-family: 'Mario';
+  font-style: normal;
+  font-weight: 500;
+  color: #EA3D4E;
+}
 .listing{
   color: #9b9b9b;
   &:hover{

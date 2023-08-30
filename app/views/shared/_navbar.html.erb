@@ -2,12 +2,13 @@
   <div class="container-fluid">
     <div class="d-flex align-items-center">
       <%= link_to root_path, class: "navbar-brand me-3" do %>
-        <%= image_tag "logo.png" %>
+        <%= image_tag "logo.png" %> <span class="logo-font">GAMES KAAR</span>
+
       <% end %>
 
       <%= form_with url: "/games", method: :get, class: "d-flex mb-0" do |form| %>
       <%= form.text_field :search, class: "form-control me-2", placeholder: "Search for a game" %>
-      <%= form.submit "Search", class:"btn btn-outline-success" %>
+      <%= form.submit "Search", class:"btn-search" %>
       <% end %>
     </div>
 
