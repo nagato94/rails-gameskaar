@@ -1,61 +1,26 @@
-<h1 class="text-center">JOGOS EM DESTAQUE</h1>
-<div class="container">
-  <div id="featured-carousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="cards m-2">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('game.jpg') %>')">
-            Breakfast
-          </div>
+<div class="card-banner" >
 
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('game.jpg') %>')">
-            Breakfast
-          </div>
-
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('game.jpg') %>')">
-            Breakfast
-          </div>
-        </div>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#featured-carousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#featured-carousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 </div>
 
-<h1 class="text-center">JOGOS À VENDA</h1>
+<h1 class="text-center">FEATURED GAMES</h1>
 <div class="container">
-  <div id="sale-carousel" class="carousel slide" data-ride="carousel">
+  <div id="featured-carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="cards m-2">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('game.jpg') %>')">
-            Game 4
-          </div>
-
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('game.jpg') %>')">
-            Game 5
-          </div>
-
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('game.jpg') %>')">
-            Game 6
+      <% @games.each_with_index do |game,index|  %>
+        <div class="carousel-item  <%= 'active' if index == 0 %>">
+          <div class="d-flex justify-content-center carousel-big">
+            <%= cl_image_tag game.image.key, class: "img-responsive carousel-img" %>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-    <a class="carousel-control-prev" href="#sale-carousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#sale-carousel" role="button" data-slide="next">
+    <button class="carousel-control-prev" type="button" data-bs-target="#featured-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#featured-carousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 </div>

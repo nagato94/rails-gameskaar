@@ -1,11 +1,27 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 16px;
   height: 250px;
-background-size: cover;
-background-position: center;
+  background-size: cover;
+  background-position: center;
+  width: 100% !important;
+
 }
+.card-category{
+  background-size: cover;
+  border: 6px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px black;
+  width: 100% !important;
+}
+.card-listing{
+  height: 25vh;
+  img{
+    height: 100%;
+  }
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

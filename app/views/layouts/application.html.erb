@@ -12,9 +12,7 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <a href="#top" id="myBtn" data-controller="scroll-to" title="Go to top"> <i class="fa-solid fa-up-long fa-bounce" style="color: #9d1b1b;"></i> </a>
   </body>
 </html>

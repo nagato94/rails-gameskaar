@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for(@game) do |form| %>
+      <%= form.input :name %>
+      <%= form.input :description %>
+      <%= form.input :category %>
+      <%= form.input :price %>
+      <%= form.submit "Edit Game", class: "btn btn-sm btn-secondary" %>
+  <% end %>
+  <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
+</div>

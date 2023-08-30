@@ -1,10 +1,11 @@
 <div class="container col-6 justify-content-center m-auto">
-  <h2 class="text-center">New Game</h2>
-  <%= simple_form_for([@user, @game]) do |f| %>
+  <h2 class="text-center">New Listing</h2>
+  <%= simple_form_for(@game) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: Game::CATEGORY%>
     <%= f.input :price %>
+    <%= f.input :image, as: :file, cloudinary: { resource_type: :image, tags: ['post_picture'] } %>
     <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
     <%= f.submit class: 'btn btn-sm btn-success' %>
   <% end %>
