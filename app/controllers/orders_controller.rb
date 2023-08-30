@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create index show]
   before_action :set_game, only: %i[new create]
 
   def new
@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.all.select { |m| m.user_id == current_user.id }
   end
 
   def create
