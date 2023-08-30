@@ -1,11 +1,29 @@
-<div class="container">
+
   <h1 class="text-center">Games Listings</h1>
-  <%= link_to 'Create game listing', new_user_game_path(current_user), class:"btn btn-primary"  %>
-  <div class="cards">
-    <% @games.each do |game| %>
-      <div class="card-category">
-        <%= link_to game.name, game_path(game) %>
-      </div>
-    <% end %>
-  </div>
-</div>
+    <div class="row mt-3">
+        <% if @games.empty? %>
+          <div class="d-flex justify-content-center">
+            <div>
+              <h3 class="text-center text-danger">Game not found!</h3>
+              <%= image_tag "mario-bg.png"%>
+            </div>
+          </div>
+        <% else  %>
+          <% @games.each do |game| %>
+            <div class="col-md-3 mb-2">
+              <div class="product-card">
+                <%= link_to game_path(game), class:"text-decoration-none" do %>
+                  <div class="product-image-container">
+                    <%= cl_image_tag game.image.key %>
+                  </div>
+                  <div class="d-flex flex-column full-height justify-content-between product-details">
+                    <p class="product-name"><%= game.name %></p>
+                    <p class="product-price">$<%= game.price %></p>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+
