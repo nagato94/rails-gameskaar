@@ -2,9 +2,9 @@
   <h1 class="text-center">Games Bought</h1>
   <div class="row mt-3">
     <% @orders.each do |order| %>
-      <div class="col-md-4 mb-4">
-        <div class="card-category card">
-            <%= cl_image_tag order.game.image.key, class: "card-img-top" %>
+      <div class="col-md-2 mb-4">
+        <div class="card-category card card-listing">
+            <%= cl_image_tag order.game.image.key %>
         </div>
         <div class="card-body">
             <p class="text-center mt-2"><%= link_to order.game.name, order_path(order), class: "text-decoration-none" %></p>
