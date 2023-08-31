@@ -9,8 +9,10 @@
           <div class="col-6"><%= f.input :price, placeholder: "$ 9999"  %></div>
         </div>
         <div class="row"><%= f.input :image, label: false, as: :file, cloudinary: { resource_type: :image, tags: ['post_picture'] } %></div>
-        <%= link_to 'Back', games_path, class: "bot-purple" %>
-        <%= f.submit class: 'bot-yellow' %>
+        <%= link_to games_path do%>
+          <button class="bot-purple me-2"><i class="fa-solid fa-arrow-left fa-2xs"></i> Back</button>
+        <% end %>
+        <%= f.submit class: 'bot-yellow yellow' %>
       <% end %>
     </div>
   </div>

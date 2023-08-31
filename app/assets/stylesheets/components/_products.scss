@@ -3,9 +3,11 @@
 
   padding: 12px 12px 10px;
   margin: 0;
+  border: 2px solid rgba(226, 193, 3, 0.8);
+  border-radius: 5px;
 
   &:hover{
-    box-shadow: 0 0 10px rgba(226, 193, 3, 0.8);
+    box-shadow: 0 0 10px yellow;
   }
 }
 

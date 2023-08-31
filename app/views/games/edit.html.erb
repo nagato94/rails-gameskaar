@@ -1,14 +1,18 @@
-<div class="container">
-  <%= simple_form_for(@game) do |form| %>
-      <%= form.input :name %>
-      <%= form.input :description %>
-      <%= form.input :category %>
-      <%= form.input :price %>
-      <%= form.submit do %>
-        <button><i class="fa-solid fa-pen-to-square"></i></button>
+ <div class="container w-50">
+    <div class="col-12">
+      <h2 class="text-center my-5">Edit Listing</h2>
+      <%= simple_form_for(@game) do |f| %>
+        <div class="row"><%= f.input :name, placeholder: "Enter game name" %></div>
+        <div class="row"><%= f.input :description %></div>
+        <div class="row">
+          <div class="col-6"><%= f.input :category, collection: Game::CATEGORY, prompt: "Select a category" %></div>
+          <div class="col-6"><%= f.input :price, placeholder: "$ 9999"  %></div>
+        </div>
+        <div class="row"><%= f.input :image, label: false, as: :file, cloudinary: { resource_type: :image, tags: ['post_picture'] } %></div>
+        <%= link_to games_path do%>
+          <button class="bot-purple me-2"><i class="fa-solid fa-arrow-left fa-2xs"></i> Back</button>
+        <% end %>
+        <%= f.submit class: 'bot-yellow yellow' %>
       <% end %>
-  <% end %>
-  <%= link_to games_path do%>
-    <button class="bot-purple mt-2"><i class="fa-solid fa-arrow-left fa-2xs"> Back</i></button>
-  <% end %>
-</div>
+    </div>
+  </div>
