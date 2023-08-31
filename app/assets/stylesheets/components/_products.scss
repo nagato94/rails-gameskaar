@@ -1,11 +1,11 @@
 .product-card{
-  background-color: #F7F7F7;
+  background-color: #000;
 
   padding: 12px 12px 10px;
   margin: 0;
 
   &:hover{
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
   }
 }
 
@@ -25,13 +25,13 @@
 
 .product-name{
   font-weight: 500;
-  color: #000;
+  color: #FFF;
 }
 
 .product-price{
   font-size: 1.2em;
   font-weight: 600;
-  color: #000;
+  color: #FFF;
   margin-bottom: 0px;
 }
 

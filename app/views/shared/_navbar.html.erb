@@ -17,11 +17,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <button class="bn5 listing text-decoration-none " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="btn-group m-2 dropdown">
+            <button class="btn-search dropdown-toggle text-decoration-none " type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categories
             </button>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "All", games_path, class: "dropdown-item fw-bold" %>
               <%= link_to "Action", games_path(category: "Action"), class: "dropdown-item" %>
               <%= link_to "Adventure", games_path(category: "Adventure"), class: "dropdown-item" %>
@@ -41,11 +41,11 @@
             <%= link_to "New listing", new_game_path, class: "bn5 listing text-decoration-none" %>
           </li>
         <% if user_signed_in? %>
-          <li class="nav-item dropdown">
+          <li class="nav-item m-2 dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "avatar.jpg", class: "avatar", alt: "dropdown menu" %>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Library", orders_path, class: "dropdown-item" %>
               <%= link_to "Store", games_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
