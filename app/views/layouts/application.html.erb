@@ -14,7 +14,9 @@
   <body>
     <%= render "shared/navbar" %>
     <%= yield %>
-    <a href="#top" id="myBtn" data-controller="scroll-to" title="Go to top"> <i class="fa-solid fa-up-long fa-bounce" style="color: #9d1b1b;"></i> </a>
+   <div data-controller="scroll-to-top">
+  <a href="#" class="scroll-to-top" data-action="click->scroll-to-top#scrollToTop" data-scroll-to-top-target="button"><i class="fa-solid fa-arrow-up fa-bounce" style="color: #ffc600;"></i></a>
+</div>
     <%= render "shared/footer" %>
   </body>
 </html>
