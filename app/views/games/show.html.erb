@@ -1,3 +1,8 @@
+<div class="m-3">
+  <%= link_to games_path do%>
+    <button class="bot-purple"><i class="fa-solid fa-arrow-left fa-beat fa-2xs"> Back</i></button>
+  <% end %>
+</div>
 <div class="container mt-3">
   <div class="row">
     <div class="col-5">
@@ -8,14 +13,17 @@
       <p>Description: <%= @game.description %></p>
       <p>Category: <%= @game.category %></p>
       <p>Price: <%= @game.price %></p>
-      <%= link_to games_path do%>
-        <%= image_tag "download.png", width: 50 %>
-      <% end %>
       <% if @user == @game.user %>
-        <%= link_to 'edit', edit_game_path(@game), class: "btn btn-sm btn-warning"%>
-        <%= link_to 'destroy', game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger"%>
+        <%= link_to edit_game_path(@game) do%>
+          <button><i class="fa-solid fa-pen-to-square fa-fade"></i> Edit</button>
+        <% end %>
+        <%= link_to game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
+          <button><i class="fa-solid fa-trash fa-bounce"></i></button>
+        <% end %>
         <% else %>
-        <%= link_to 'buy', new_game_order_path(game_id: @game.id), class: "btn btn-sm btn-warning"%>
+        <%= link_to new_game_order_path(game_id: @game.id) do%>
+          <button><i class="fa-solid fa-cart-shopping"> Buy</i></button>
+        <% end %>
       <% end %>
     </div>
   </div>

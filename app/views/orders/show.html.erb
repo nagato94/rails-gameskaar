@@ -15,7 +15,9 @@
   </div>
   <div class="row mt-3 mb-2">
     <div class="col text-center">
-      <%= link_to "Back", orders_path, class: "btn btn-primary" %>
+      <%= link_to orders_path do%>
+        <button class="bot-purple"><i class="fa-solid fa-arrow-left fa-beat fa-2xs"> Back</i></button>
+      <% end %>
     </div>
   </div>
 </div>
