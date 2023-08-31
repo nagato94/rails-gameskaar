@@ -6,8 +6,8 @@
       <% end %>
 
       <%= form_with url: "/games", method: :get, class: "d-flex mb-0" do |form| %>
-        <%= form.text_field :search, class: "form-control me-2 col-6", placeholder: "Search for any game..." %>
-        <%= form.submit "Search", class:"btn-search" %>
+        <%= form.text_field :search, class: "form-control me-2 col-6", style: "width: 600px", placeholder: "Search for any game..." %>
+        <%= form.submit "Search", class:"btn-search"%>
       <% end %>
     </div>
 
@@ -37,7 +37,7 @@
               <%= link_to "Strategy", games_path(category: "Strategy"), class: "dropdown-item" %>
             </div>
           </li>
-          <li class="nav-item m-2">
+          <li class="nav-item m-2 py-2">
             <%= link_to "New listing", new_game_path, class: "bn5 listing text-decoration-none" %>
           </li>
         <% if user_signed_in? %>

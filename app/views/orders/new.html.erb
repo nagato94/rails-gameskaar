@@ -11,7 +11,9 @@
           <%= simple_form_for([@game, @order], html: { class: "mt-3" }) do |f| %>
             <%= f.submit "Confirm buy", class: "btn btn-outline-success btn-block" %>
           <% end %>
-          <%= link_to 'Back', games_path, class: "btn btn-primary btn-block mt-3" %>
+          <%= link_to games_path do%>
+            <button class="bot-purple mt-2"><i class="fa-solid fa-arrow-left fa-2xs"> Back</i></button>
+          <% end %>
         </div>
       </div>
     </div>

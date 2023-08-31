@@ -4,7 +4,11 @@
       <%= form.input :description %>
       <%= form.input :category %>
       <%= form.input :price %>
-      <%= form.submit "Edit Game", class: "btn btn-sm btn-secondary" %>
+      <%= form.submit do %>
+        <button><i class="fa-solid fa-pen-to-square"></i></button>
+      <% end %>
   <% end %>
-  <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
+  <%= link_to games_path do%>
+    <button class="bot-purple mt-2"><i class="fa-solid fa-arrow-left fa-2xs"> Back</i></button>
+  <% end %>
 </div>

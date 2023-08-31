@@ -6,7 +6,9 @@
     <%= f.input :category, collection: Game::CATEGORY%>
     <%= f.input :price %>
     <%= f.input :image, as: :file, cloudinary: { resource_type: :image, tags: ['post_picture'] } %>
-    <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
+    <%= link_to games_path do%>
+      <button class="bot-purple mt-2"><i class="fa-solid fa-arrow-left fa-2xs"> Back</i></button>
+    <% end %>
     <%= f.submit class: 'btn btn-sm btn-success' %>
   <% end %>
 </div>
