@@ -2,14 +2,21 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 @font-face {
+  font-family: 'Prompt';
+  src: font-url("Bangers-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
   font-family: 'Mario';
   src: font-url("SuperMarioBros.ttf");
   font-weight: 500;
   font-style: normal;
 }
+
 // Define fonts for body and headers
 $body-font: "Helvetica";
-$headers-font: "Mario";
+$headers-font: "Prompt";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
