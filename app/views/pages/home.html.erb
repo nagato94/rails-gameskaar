@@ -4,23 +4,27 @@
 
 <h1 class="text-center">FEATURED GAMES</h1>
 <div class="container">
-  <div id="featured-carousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <% @games.each_with_index do |game,index|  %>
-        <div class="carousel-item  <%= 'active' if index == 0 %>">
-          <div class="d-flex justify-content-center carousel-big">
-            <%= cl_image_tag game.image.key, class: "img-responsive carousel-img" %>
-          </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Game Title</h5>
+          <p class="card-text">Game Description</p>
+          <a href="#" class="btn btn-primary">View Game</a>
         </div>
-      <% end %>
+      </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#featured-carousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#featured-carousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Game Title</h5>
+          <p class="card-text">Game Description</p>
+          <a href="#" class="btn btn-primary">View Game</a>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>

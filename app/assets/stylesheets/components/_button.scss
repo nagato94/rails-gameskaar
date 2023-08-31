@@ -1,5 +1,4 @@
-// botao de search
-.btn-search {
+.bot-outline {
   padding: 10px 10px;
   font-size: 12px;
   font-weight: 600;
@@ -10,43 +9,27 @@
   border-radius: 10px;
   text-transform: uppercase;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+
+  &:hover {
+    border-color: #E900FF;
+    box-shadow: 0 0 20px #E900FF;
+    color: #E900FF;
+  }
+
+  &:active {
+    box-shadow: 0 0 10px rgba(9, 117, 241, 0.4);
+  }
 }
 
-.btn-search:hover {
-  border-color: #E900FF;
-  box-shadow: 0 0 20px #E900FF;
-}
-
-.btn-search:active {
-  box-shadow: 0 0 10px rgba(9, 117, 241, 0.4);
-}
-
-
-//botao login
-
-.btn-login {
-  padding: 10px 10px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 2px solid #414141;
+.bot-purple {
+  background-color: #5800FF;
   color: white;
-  background-color: transparent;
-  cursor: pointer;
-  border-radius: 10px;
-  text-transform: uppercase;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.btn-login:hover {
-  border-color: #E900FF;
-  box-shadow: 0 0 20px #E900FF;
-  color: #E900FF;
+.bot-pink {
+  background-color: #E900FF;
+  color: #000;
 }
-
-.btn-login:active {
-  box-shadow: 0 0 10px rgba(9, 117, 241, 0.4);
-}
-
 
 // botao de new listing
 .bn5 {
