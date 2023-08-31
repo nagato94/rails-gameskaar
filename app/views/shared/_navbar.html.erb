@@ -2,13 +2,12 @@
   <div class="container-fluid">
     <div class="d-flex align-items-center">
       <%= link_to root_path, class: "navbar-brand me-3" do %>
-        <%= image_tag "logo.png" %> <span class="logo-font">GAMES KAAR</span>
-
+        <%= image_tag "logo.png" %> <span class="logo-font">GamesKaar</span>
       <% end %>
 
       <%= form_with url: "/games", method: :get, class: "d-flex mb-0" do |form| %>
-      <%= form.text_field :search, class: "form-control me-2", placeholder: "Search for a game" %>
-      <%= form.submit "Search", class:"btn-search" %>
+        <%= form.text_field :search, class: "form-control me-2 col-6", placeholder: "Search for any game..." %>
+        <%= form.submit "Search", class:"btn-search" %>
       <% end %>
     </div>
 
@@ -18,6 +17,26 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <button class="bn5 listing text-decoration-none " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "All", games_path, class: "dropdown-item fw-bold" %>
+              <%= link_to "Action", games_path(category: "Action"), class: "dropdown-item" %>
+              <%= link_to "Adventure", games_path(category: "Adventure"), class: "dropdown-item" %>
+              <%= link_to "FPS", games_path(category: "FPS"), class: "dropdown-item" %>
+              <%= link_to "Horror", games_path(category: "Horror"), class: "dropdown-item" %>
+              <%= link_to "MMO", games_path(category: "MMO"), class: "dropdown-item" %>
+              <%= link_to "MMORPG", games_path(category: "MMORPG"), class: "dropdown-item" %>
+              <%= link_to "MOBA", games_path(category: "MOBA"), class: "dropdown-item" %>
+              <%= link_to "Puzzle", games_path(category: "Puzzle"), class: "dropdown-item" %>
+              <%= link_to "RPG", games_path(category: "RPG"), class: "dropdown-item" %>
+              <%= link_to "Simulation", games_path(category: "Simulation"), class: "dropdown-item" %>
+              <%= link_to "Sports", games_path(category: "Sports"), class: "dropdown-item" %>
+              <%= link_to "Strategy", games_path(category: "Strategy"), class: "dropdown-item" %>
+            </div>
+          </li>
           <li class="nav-item m-2">
             <%= link_to "New listing", new_game_path, class: "bn5 listing text-decoration-none" %>
           </li>
