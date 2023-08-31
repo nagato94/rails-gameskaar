@@ -1,14 +1,14 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: %i[index new create edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_game, only: %i[show edit update destroy]
 
   def index
     if params[:search].present?
       @games = Game.where("name ILIKE ?", "%#{params[:search]}%")
     elsif params[:category].present?
-      @games = Game.where(category: params[:category])
+      @games = Game.where(category: params[:category], bought: false)
     else
-      @games = Game.all
+      @games = Game.where(bought: false)
     end
   end
 
@@ -45,6 +45,10 @@ class GamesController < ApplicationController
     redirect_to games_path notice: "Game was successfully destroyed.", status: :see_other
   end
 
+  def bought?
+    @game.bought
+  end
+
   private
 
   def set_game
@@ -57,6 +61,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :price, :category, :user_id, :image)
+    params.require(:game).permit(:name, :description, :price, :category, :user_id, :image, :bought)
   end
 end

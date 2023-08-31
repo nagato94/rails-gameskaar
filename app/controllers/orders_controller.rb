@@ -15,6 +15,8 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.game = @game
     if @order.save
+      @game.bought = true
+      @game.save
       redirect_to @order
     else
       render :new, status: :unprocessable_entity
