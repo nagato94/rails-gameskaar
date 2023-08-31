@@ -7,7 +7,7 @@
 
       <%= form_with url: "/games", method: :get, class: "d-flex mb-0" do |form| %>
         <%= form.text_field :search, class: "form-control me-2 col-6", style: "width: 600px", placeholder: "Search for any game..." %>
-        <%= form.submit "Search", class:"btn-search"%>
+        <%= form.submit "Search", class:"bot-outline"%>
       <% end %>
     </div>
 
@@ -52,7 +52,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item m-2">
             <%= link_to "Login", new_user_session_path, class: "bot-outline nav-link" %>
           </li>
         <% end %>

@@ -24,11 +24,13 @@
 .bot-purple {
   background-color: #5800FF;
   color: white;
+  border-radius: 20%;
 }
 
 .bot-pink {
   background-color: #E900FF;
   color: #000;
+  border-radius: 20%;
 }
 
 // botao de new listing
@@ -37,7 +39,7 @@
   border: none;
   outline: none;
   color: #000;
-  background: #E900FF;
+  background: #FFC600;
   cursor: pointer;
   position: relative;
   z-index: 0;
