@@ -1,15 +1,22 @@
 <div class="container mt-3">
-  <%= cl_image_tag @game.image.key, width: 400 %>
-  <h1><%= @game.name %></h1>
-  <p>Description: <%= @game.description %></p>
-  <p>Category: <%= @game.category %></p>
-  <p>Price: <%= @game.price %></p>
-  <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
-  <% if @user == @game.user %>
-    <%= link_to 'edit', edit_game_path(@game), class: "btn btn-sm btn-warning"%>
-    <%= link_to 'destroy', game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger"%>
-    <% else %>
-    <%= link_to 'buy', new_game_order_path(game_id: @game.id), class: "btn btn-sm btn-warning"%>
-  <% end %>
+  <div class="row">
+    <div class="col-5">
+      <%= cl_image_tag @game.image.key, width: 400 %>
+    </div>
+    <div class="col-6 ">
+      <h1><%= @game.name %></h1>
+      <p>Description: <%= @game.description %></p>
+      <p>Category: <%= @game.category %></p>
+      <p>Price: <%= @game.price %></p>
+      <%= link_to games_path do%>
+        <%= image_tag "download.png", width: 50 %>
+      <% end %>
+      <% if @user == @game.user %>
+        <%= link_to 'edit', edit_game_path(@game), class: "btn btn-sm btn-warning"%>
+        <%= link_to 'destroy', game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger"%>
+        <% else %>
+        <%= link_to 'buy', new_game_order_path(game_id: @game.id), class: "btn btn-sm btn-warning"%>
+      <% end %>
+    </div>
+  </div>
 </div>
-
