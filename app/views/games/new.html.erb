@@ -1,12 +1,21 @@
-<div class="container col-6 justify-content-center m-auto">
-  <h2 class="text-center">New Listing</h2>
+<div class="container col-6 justify-content-center m-auto inputBox">
+  <h2 class="text-center my-5">New Listing</h2>
   <%= simple_form_for(@game) do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, label: false, placeholder: "Enter game name" %>
     <%= f.input :description %>
-    <%= f.input :category, collection: Game::CATEGORY%>
-    <%= f.input :price %>
-    <%= f.input :image, as: :file, cloudinary: { resource_type: :image, tags: ['post_picture'] } %>
-    <%= link_to 'back', games_path, class: "btn btn-sm btn-primary my-3" %>
-    <%= f.submit class: 'btn btn-sm btn-success' %>
-  <% end %>
+    <div class="d-flex justify-content-between">
+      <div class="col-lg-6">
+        <%= f.input :category, collection: Game::CATEGORY, prompt: "select a category"%>
+      </div>
+      <div class="col-lg-4">
+        <%= f.input :price, placeholder: "$ 9999"  %>
+      </div>
+    </div>
+    <%= f.input :image, label: false, as: :file, cloudinary: { resource_type: :image, tags: ['post_picture'] } %>
+
 </div>
+<div class="d-flex justify-content-center my-5">
+    <%= link_to 'back', games_path, class: "btn btn-sm btn-primary me-2" %>
+    <%= f.submit class: 'btn btn-sm btn-success' %>
+    </div>
+  <% end %>
