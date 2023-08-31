@@ -9,6 +9,8 @@ legend ~ div.form-check:first-of-type {
   clear: left;
 }
 
+// form login/signup/ forgot password
+
 .login-box {
   position: absolute;
   top: 60%;
@@ -196,4 +198,45 @@ legend ~ div.form-check:first-of-type {
 .login-box a.a2 {
   color: #fff;
   text-decoration: none;
+}
+
+
+// form new listing
+
+.inputBox input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  color: #000;
+  font-size: 1em;
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid black;
+  transition: 0.1s;
+}
+.inputBox textarea {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  color: #000;
+  font-size: 1em;
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid black;
+  transition: 0.1s;
+}
+
+.inputBox select {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  color: #000;
+  font-size: 1em;
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid black;
+  transition: 0.1s;
 }
