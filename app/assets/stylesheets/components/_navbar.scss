@@ -8,19 +8,11 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
+  width: 40px;
 }
 
 .logo-font{
   font-family : 'Prompt';
-  font-size: 28px;
+  font-size: 34px;
   color: #FFC600;
-}
-
-.listing{
-  color: #9b9b9b;
-  &:hover{
-    color: $success;
-    transition: .3s ease-in-out;
-    }
 }
