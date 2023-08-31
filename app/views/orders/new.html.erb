@@ -1,18 +1,29 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-4 offset-md-3">
+    <div class="col-md-4">
       <div class="card border-0">
-        <div class="card-body text-center">
-          <div class="card-category card">
-            <%= cl_image_tag @game.image.key, class: "img-fluid" %>
+        <div class="d-flex card-category">
+          <%= cl_image_tag @game.image.key, class: "img-fluid img-small" %>
+          <div class="text-center my-2">
+          <strong><span class="card-text mx-3"><%= @game.name %></span></strong>
+          <p class="mx-3 my-2"><%= @game.description %></p>
           </div>
-          <p class="card-text mt-2"><%= @game.description %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mx-5">
+      <div class="card border-0">
+        <div class="card-body card-category">
+
           <p class="card-text"><strong>Price: <%= number_to_currency(@game.price) %></strong></p>
+          <div class="d-flex align-items-center mb-3">
+            <p class="card-text">Do you have a coupon?  <i class="fa-solid fa-receipt text-danger"></i></p>
+          </div>
           <%= simple_form_for([@game, @order], html: { class: "mt-3" }) do |f| %>
-            <%= f.submit "Confirm buy", class: "btn btn-outline-success btn-block" %>
-          <% end %>
-          <%= link_to games_path do%>
-            <button class="bot-purple mt-2"><i class="fa-solid fa-arrow-left fa-2xs"> Back</i></button>
+            <%= link_to games_path, class: "btn me-2 bot-purple" do %>
+              <i class="fa-solid fa-arrow-left fa-2xs"></i> Back
+            <% end %>
+            <%= f.submit "Confirm buy", class: "btn btn-outline-success" %>
           <% end %>
         </div>
       </div>

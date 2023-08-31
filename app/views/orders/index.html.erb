@@ -3,12 +3,14 @@
   <div class="row mt-3">
     <% @orders.each do |order| %>
       <div class="col-md-2 mb-4">
-        <div class="card-category card card-listing">
-            <%= cl_image_tag order.game.image.key %>
-        </div>
-        <div class="card-body">
-            <p class="text-center mt-2"><%= link_to order.game.name, order_path(order), class: "text-decoration-none" %></p>
-            <p class="text-center">$ <%= order.game.price %></p>
+        <div class="card card-listing card-category">
+          <%= cl_image_tag order.game.image.key, class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              <%= link_to order.game.name, order_path(order), class: "text-decoration-none" %>
+            </h5>
+            <p class="card-text text-center">$ <%= order.game.price %></p>
+          </div>
         </div>
       </div>
     <% end %>
