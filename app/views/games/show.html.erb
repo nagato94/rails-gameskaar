@@ -21,8 +21,10 @@
           <button><i class="fa-solid fa-trash fa-bounce"></i></button>
         <% end %>
         <% else %>
-        <%= link_to new_game_order_path(game_id: @game.id) do%>
-          <button><i class="fa-solid fa-cart-shopping"> Buy</i></button>
+          <% unless @game.bought? %>
+          <%= link_to new_game_order_path(game_id: @game.id) do%>
+            <button><i class="fa-solid fa-cart-shopping"> Buy</i></button>
+          <% end %>
         <% end %>
       <% end %>
     </div>

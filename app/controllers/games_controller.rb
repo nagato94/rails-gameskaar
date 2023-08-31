@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   def index
     if params[:search].present?
       @games = Game.where("name ILIKE ?", "%#{params[:search]}%")
+      @games = @games.where(bought: false)
     elsif params[:category].present?
       @games = Game.where(category: params[:category], bought: false)
     else
