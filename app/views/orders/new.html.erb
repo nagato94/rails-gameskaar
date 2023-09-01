@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
       <div class="card border-0">
         <div class="d-flex card-category">
           <%= cl_image_tag @game.image.key, class: "img-fluid img-small" %>
@@ -11,7 +11,9 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 mx-5">
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <div class="card border-0">
         <div class="card-body card-category" data-controller="apply-discount">
           <p class="card-text" data-target="apply-discount.price" data-initial-price="<%= @game.price %>">
@@ -22,16 +24,18 @@
                 <%= f.label :coupon do %>
                   Promo Code <i class="fa-solid fa-receipt text-danger"></i>
                 <% end %>
-
-                <%= f.input :coupon, label: false, placeholder: "Add your coupon code", input_html: { data: { target: "apply-discount.input" } }, class: "form-control" %>
-
+                <div class="col-4 my-2">
+                  <%= f.input :coupon, label: false, placeholder: "Add your coupon code", input_html: { data: { target: "apply-discount.input" } }, class: "form-control" %>
+                </div>
             </div>
             <p class="card-text text-end" data-apply-discount-target="discount">Discount: <%= number_to_currency(0) %></p>
             <p class="card-text text-end" data-apply-discount-target="finalPrice"><strong>Total: <%= number_to_currency(@game.price) %></strong></p>
-            <%= link_to games_path, class: "me-2 bot-purple" do %>
-              <i class="fa-solid fa-arrow-left fa-2xs"></i> Back
-            <% end %>
-            <%= f.submit 'Confirm order', class: "bot-yellow" %>
+            <div class="d-flex justify-content-end">
+              <%= link_to games_path, class: "me-2 bot-purple" do %>
+                <i class="fa-solid fa-arrow-left fa-2xs"></i> Back
+              <% end %>
+              <%= f.submit 'Confirm order', class: "bot-yellow" %>
+            </div>
           <% end %>
         </div>
       </div>

@@ -1,0 +1,18 @@
+
+  <h1 class="text-center">My Sold Games</h1>
+  <div class="row">
+    <% @games_sold.each do |game| %>
+      <div class="col-md-4">
+        <div class="card card-category">
+          <div class="mb-2">
+            <%= cl_image_tag game.image.key, class: "card-img-top" %>
+          </div>
+          <div class="" style="height: 50px;">
+            <h5 class="card-title text-center">
+              <%= link_to game.name, game_path(game), class: "text-decoration-none" %>
+            </h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
