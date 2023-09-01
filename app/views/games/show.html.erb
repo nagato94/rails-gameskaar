@@ -12,16 +12,18 @@
       <h1><%= @game.name %></h1>
       <p>Description: <%= @game.description %></p>
       <p>Category: <%= @game.category %></p>
-      <p>Price: <%= @game.price %></p>
+      <p>Price: $<%= @game.price %></p>
       <% if @user == @game.user %>
-        <%= link_to edit_game_path(@game), class: "text-decoration-none" do%>
-          <button class="bot-yellow-edit yellow me-2"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+        <% unless @game.bought? %>
+          <%= link_to edit_game_path(@game), class: "text-decoration-none" do%>
+            <button class="bot-yellow-edit yellow me-2"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+          <% end %>
+          <%= link_to game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+            <button class="bot-red red"><i class="fa-solid fa-trash fa-fa"></i> Delete</button>
+          <% end %>
         <% end %>
-        <%= link_to game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-          <button class="bot-red red"><i class="fa-solid fa-trash fa-fa"></i> Delete</button>
-        <% end %>
-        <% else %>
-          <% unless @game.bought? %>
+      <% else %>
+        <% unless @game.bought? %>
           <%= link_to new_game_order_path(game_id: @game.id) do%>
             <button class="bot-yellow yellow"><i class="fa-solid fa-cart-shopping"> Buy</i></button>
           <% end %>
