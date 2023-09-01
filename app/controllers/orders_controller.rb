@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @games_sold = Game.where(bought: true, user_id: current_user)
+    @games_listed = Game.where(bought: false, user_id: current_user)
     @orders = Order.all.select { |m| m.user_id == current_user.id }
   end
 
@@ -26,6 +28,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find params[:id]
   end
+
 
   private
 
