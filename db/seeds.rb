@@ -1,56 +1,40 @@
+require 'uri'
+require 'net/https'
+require 'open-uri'
+
+CATEGORY = %w[FPS Moba RPG MMO MMORPG Action Adventure Puzzle Sports Strategy Simulation Horror].freeze
+
 Game.destroy_all
 User.destroy_all
 Order.destroy_all
 
 users = [
-  { email: "seller@email.com", password: "teste123", password_confirmation: "teste123" },
-  { email: "buyer@email.com", password: "teste123", password_confirmation: "teste123" },
+  { email: "kaique@email.com",	password: "teste123", password_confirmation: "teste123" },
+  { email: "rafael@email.com", password: "teste123", password_confirmation: "teste123" },
+  { email: "anabacana@email.com", password: "teste123", password_confirmation: "teste123" },
+  { email: "alyson@email.com", password: "teste123", password_confirmation: "teste123" }
 ]
 
 users.each do |user|
   User.create!(user)
 end
 
-game = Game.new(
-  name: "The Witcher 3: Wild Hunt",
-  description: "Um RPG épico de mundo aberto.",
-  category: "RPG",
-  price: 10.00,
-  user_id: User.first.id
-)
-game.image.attach(io: File.open("app/assets/images/seed-covers/the-witcher-3.png"), filename: "the-witcher-3.png", content_type: "image/jpg")
+http = Net::HTTP.new('api.igdb.com', 443)
+http.use_ssl = true
 
-game.save!
+# criando request para pegar os jogos
+request = Net::HTTP::Post.new(URI('https://api.igdb.com/v4/games'), {'Client-ID' => ENV['TWITCH_CLIENT_ID'], 'Authorization' => ENV['IGDB_AUTHORIZATION']})
+request.body = 'fields name, summary, cover; where category = 0 & platforms = {48,6} & rating > 70; limit 30;'
+response = http.request(request)
+parsed_games = JSON.parse(response.read_body)
 
-game = Game.new(
-  name: "Valorant",
-  description: "Um jogo de tiro tático em equipe.",
-  category: "FPS",
-  price: 5.00,
-  user_id: User.first.id
-)
-game.image.attach(io: File.open("app/assets/images/seed-covers/valorant.png"), filename: "valorant.png", content_type: "image/jpg")
-
-game.save!
-
-game = Game.new(
-  name: "Blasphemous II",
-  description: "Awakened in a strange new land, and displaced from his final resting place",
-  category: "Adventure",
-  price: 98.00,
-  user_id: User.first.id
-)
-game.image.attach(io: File.open("app/assets/images/seed-covers/blasphemous-2.png"), filename: "blasphemous-2.png", content_type: "image/jpg")
-
-game.save!
-
-game = Game.new(
-  name: "Warhammer: Chaosbane",
-  description: "In a world ravaged by war and dominated by magic, you must rise up to face the Chaos hordes.",
-  category: "RPG",
-  price: 6.20,
-  user_id: User.first.id
-)
-game.image.attach(io: File.open("app/assets/images/seed-covers/warhammer-chaosbane.png"), filename: "warhammer-chaosbane.png", content_type: "image/jpg")
-
-game.save!
+parsed_games.each do |game|
+  added_game = Game.new(name: game["name"], description: game["summary"], category: CATEGORY.sample, price: rand(5..99), user_id: rand(1..4))
+  request_cover = Net::HTTP::Post.new(URI('https://api.igdb.com/v4/covers'), {'Client-ID' => ENV['TWITCH_CLIENT_ID'], 'Authorization' => ENV['IGDB_AUTHORIZATION']})
+  request_cover.body = "fields image_id; where id = #{game['cover']};"
+  response_cover = http.request(request_cover)
+  parsed_cover = JSON.parse(response_cover.read_body)
+  image = URI.parse("https://images.igdb.com/igdb/image/upload/t_cover_big/#{parsed_cover[0]['image_id']}.png").open
+  added_game.image.attach(io: image, filename: "#{added_game.name}.png")
+  added_game.save!
+end
