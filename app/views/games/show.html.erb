@@ -14,7 +14,7 @@
       <p>Category: <%= @game.category %></p>
       <p>Price: <%= @game.price %></p>
       <% if @user == @game.user %>
-        <%= link_to edit_game_path(@game) do%>
+        <%= link_to edit_game_path(@game), class: "text-decoration-none" do%>
           <button class="bot-yellow-edit yellow me-2"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
         <% end %>
         <%= link_to game_path(@game), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
