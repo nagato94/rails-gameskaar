@@ -14,7 +14,17 @@
   background-image: asset-url("banner.jpg");
 
 }
-
+.featured-banner1{
+  background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), asset-url("gow.jpg");
+  background-size: cover;
+}
+.featured-banner2{
+  background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), asset-url("subzero.jpg");
+  background-size: cover;
+}
+.link-text:hover{
+  color: red;
+}
 .banner {
   background-image: asset-url("banners/banner-1.png");
   background-size: cover;
